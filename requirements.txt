@@ -1,0 +1,30 @@
+# --- Web Framework & Server ---
+fastapi==0.111.0
+uvicorn==0.30.1
+python-dotenv==1.0.1
+
+# --- LangChain Ecosystem ---
+langchain==0.2.0
+langchain-community==0.2.0
+langchain-core==0.2.0
+langchain-chroma==0.1.0
+langchain-huggingface==0.0.1
+
+# --- Vector Database & Embeddings ---
+chromadb==0.5.0
+faiss-cpu==1.7.4
+sentence-transformers==3.0.1
+
+# --- Deep Learning & Models ---
+torch==2.3.0
+transformers==4.42.0
+accelerate==0.30.1
+
+# --- Document Processing & Text ---
+pymupdf==1.24.2
+jieba==0.42.1
+pandas==2.2.2
+
+# --- Evaluation (Ragas) ---
+ragas==0.1.25
+datasets==2.19.0
