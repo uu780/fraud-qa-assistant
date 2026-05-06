@@ -112,29 +112,15 @@ def save_to_db(chunks):
     #索引--向量存储
     vectorstore = Chroma.from_documents(chunks, embedding_model, persist_directory="vectorstore")
     return vectorstore
-# 测试检索
-    #query = "创投精英群"
-    #results = vectorstore.similarity_search(query, k=20)
-
-    #print(f"检索结果数: {len(results)}")
-    #for i, doc in enumerate(results):
-        #print(f"\n--- 结果 {i+1} ---")
-        #print(doc.page_content[:300])
-    #return results
 
 if __name__ == "__main__":
     documents = load_documents()
-    print(f"1. 原始文档数: {len(documents)}")
-
     cleaned_docs = clean_documents(documents)
-    print(f"2. 清洗后文档数: {len(cleaned_docs)}")
 
     #from langchain_community.llms.tongyi import Tongyi
     # llm = Tongyi(model="qwen-turbo", api_key=os.getenv("TONGYI_API_KEY"))
     # cleaned_docs = clean_documents(documents, use_llm_repair=True, llm=llm)
     
     chunked_docs = split_by_content_type(cleaned_docs)
-    print(f"3. 切分后 chunk 数: {len(chunked_docs)}")
-
     vectorstore = save_to_db(chunked_docs)
 
